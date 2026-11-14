@@ -39,7 +39,7 @@ class MainActivity:Activity(){
  private fun every(ms:Long,f:()->Unit){val r=object:Runnable{override fun run(){f();ui.postDelayed(this,ms)}};tick=r;ui.post(r)}
  private fun col()=LinearLayout(this).apply{orientation=LinearLayout.VERTICAL;setPadding(48,32,48,32)}
  private fun LinearLayout.btn(t:String,f:()->Unit){addView(Button(context).apply{text=t;setOnClickListener{f()}})}
- private fun LinearLayout.row(vararg bs:Pair<String,()->Unit>){addView(LinearLayout(context).apply{for((t,f) in bs)addView(Button(context).apply{text=t;setOnClickListener{f()}},LinearLayout.LayoutParams(0,-2,1f)})}
+ private fun LinearLayout.row(vararg bs:Pair<String,()->Unit>){addView(LinearLayout(context).apply{for((t,f) in bs)addView(Button(context).apply{text=t;setOnClickListener{f()}},LinearLayout.LayoutParams(0,-2,1f))})}
  private fun LinearLayout.label(t:String)=TextView(context).apply{text=t;textSize=15f;setPadding(0,12,0,4)}.also{addView(it)}
  private fun LinearLayout.slider(t:String,k:String,d:Float,mn:Float,mx:Float,onSet:()->Unit={}){
   val tv=label(t);val s=SeekBar(context).apply{max=100;progress=((FoxMRTracker.getFloat(k,d)-mn)/(mx-mn)*100).toInt()};addView(s)
