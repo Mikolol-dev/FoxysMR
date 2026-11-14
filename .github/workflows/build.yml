@@ -18,7 +18,7 @@ jobs:
         with: {gradle-version: 8.7}
       - run: mkdir -p tracker/src/main/assets && curl -L -o tracker/src/main/assets/hand_landmarker.task https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task
       - run: gradle :tracker:assembleRelease :app:assembleDebug --no-daemon
-      - run: cp tracker/build/outputs/aar/tracker-release.aar unity/FoxMR/Plugins/Android/foxmr-tracker.aar
+      - run: mkdir -p unity/FoxMR/Plugins/Android && cp tracker/build/outputs/aar/tracker-release.aar unity/FoxMR/Plugins/Android/foxmr-tracker.aar
       - uses: actions/upload-artifact@v4
         with: {name: FoxMR-app-apk, path: FoxMRMobile/app/build/outputs/apk/debug/app-debug.apk}
       - uses: actions/upload-artifact@v4
